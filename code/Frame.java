@@ -20,7 +20,7 @@ import javax.swing.Timer;
 public class Frame extends JPanel
 		implements ActionListener, MouseListener, MouseMotionListener, KeyListener {
 	
-
+	private static final long serialVersionUID = 1L;
 	ControlHandler ch;
 	JFrame window;
 	
@@ -53,12 +53,12 @@ public class Frame extends JPanel
 		setFocusTraversalKeysEnabled(false);
 		
 		//Set Up algorithms
-		astar = new Astar(this, size);
+		
 		bfs = new BFS(this, size);
 		dfs = new DFS(this, size);
 		dijkstra = new Dijkstra(this, size);
 		greedy =  new Greedy(this, size);
-		
+		astar = new Astar(this, size);
 
 		// Set up window
 		window = new JFrame();
@@ -121,74 +121,74 @@ public class Frame extends JPanel
 			}
 		}else if(algorithms.equals("BFS")) {
 			// Draws all open Nodes (path finding nodes)
-		for (int i = 0; i < bfs.getOpen().size(); i++) {
-			Node current = bfs.getOpen().get(i);
-			g.setColor(Color.green);
-			g.fillRect(current.getX() + 1, current.getY() + 1, size - 1, size - 1);
-		}
-		
-		// Draws all closed nodes
-		for (int i = 0; i < bfs.getClosed().size(); i++) {
-			Node current = bfs.getClosed().get(i);
-
-			g.setColor(Color.red);
-			g.fillRect(current.getX() + 1, current.getY() + 1, size - 1, size - 1);
-		}
-
-		// Draw all final path nodes
-		for (int i = 0; i < bfs.getPath().size(); i++) {
-			Node current = bfs.getPath().get(i);
-
-			g.setColor(Color.blue);
-			g.fillRect(current.getX() + 1, current.getY() + 1, size - 1, size - 1);
-
-		}
-		// Setting numbers in pathfinding lists
-		ch.getL("computedC").setText(String.valueOf(bfs.getClosed().size()));
-		ch.getL("lengthC").setText(String.valueOf(bfs.getPath().size()));
-		
-		// if pathfinding is complete 
-		if(bfs.isComplete()) {
-			ch.getB("run").setText("clear");
-			if(!visualizationCheck) {
-				ch.getL("timeC").setText(bfs.getRunTime() + " ms");
+			for (int i = 0; i < bfs.getOpen().size(); i++) {
+				Node current = bfs.getOpen().get(i);
+				g.setColor(Color.green);
+				g.fillRect(current.getX() + 1, current.getY() + 1, size - 1, size - 1);
 			}
-		}
+			
+			// Draws all closed nodes
+			for (int i = 0; i < bfs.getClosed().size(); i++) {
+				Node current = bfs.getClosed().get(i);
+		
+				g.setColor(Color.red);
+				g.fillRect(current.getX() + 1, current.getY() + 1, size - 1, size - 1);
+			}
+		
+			// Draw all final path nodes
+			for (int i = 0; i < bfs.getPath().size(); i++) {
+				Node current = bfs.getPath().get(i);
+		
+				g.setColor(Color.blue);
+				g.fillRect(current.getX() + 1, current.getY() + 1, size - 1, size - 1);
+		
+			}
+			// Setting numbers in pathfinding lists
+			ch.getL("computedC").setText(String.valueOf(bfs.getClosed().size()));
+			ch.getL("lengthC").setText(String.valueOf(bfs.getPath().size()));
+			
+			// if pathfinding is complete 
+			if(bfs.isComplete()) {
+				ch.getB("run").setText("clear");
+				if(!visualizationCheck) {
+					ch.getL("timeC").setText(bfs.getRunTime() + " ms");
+				}
+			}
 			
 		}else if(algorithms.equals("DFS")) {
 			// Draws all open Nodes (path finding nodes)
-		for (int i = 0; i < dfs.getOpen().size(); i++) {
-			Node current = dfs.getOpen().get(i);
-			g.setColor(Color.green);
-			g.fillRect(current.getX() + 1, current.getY() + 1, size - 1, size - 1);
-		}
-		
-		// Draws all closed nodes
-		for (int i = 0; i < dfs.getClosed().size(); i++) {
-			Node current = dfs.getClosed().get(i);
-
-			g.setColor(Color.red);
-			g.fillRect(current.getX() + 1, current.getY() + 1, size - 1, size - 1);
-		}
-
-		// Draw all final path nodes
-		for (int i = 0; i < dfs.getPath().size(); i++) {
-			Node current = dfs.getPath().get(i);
-
-			g.setColor(Color.blue);
-			g.fillRect(current.getX() + 1, current.getY() + 1, size - 1, size - 1);
-
-		}
-		// Setting numbers in pathfinding lists
-		ch.getL("computedC").setText(String.valueOf(dfs.getClosed().size()));
-		ch.getL("lengthC").setText(String.valueOf(dfs.getPath().size()));
-		
-		// if pathfinding is complete 
-		if(dfs.isComplete()) {
-			ch.getB("run").setText("clear");
-			if(!visualizationCheck) {
-				ch.getL("timeC").setText(dfs.getRunTime() + " ms");
+			for (int i = 0; i < dfs.getOpen().size(); i++) {
+				Node current = dfs.getOpen().get(i);
+				g.setColor(Color.green);
+				g.fillRect(current.getX() + 1, current.getY() + 1, size - 1, size - 1);
 			}
+			
+			// Draws all closed nodes
+			for (int i = 0; i < dfs.getClosed().size(); i++) {
+				Node current = dfs.getClosed().get(i);
+	
+				g.setColor(Color.red);
+				g.fillRect(current.getX() + 1, current.getY() + 1, size - 1, size - 1);
+			}
+	
+			// Draw all final path nodes
+			for (int i = 0; i < dfs.getPath().size(); i++) {
+				Node current = dfs.getPath().get(i);
+	
+				g.setColor(Color.blue);
+				g.fillRect(current.getX() + 1, current.getY() + 1, size - 1, size - 1);
+	
+			}
+			// Setting numbers in pathfinding lists
+			ch.getL("computedC").setText(String.valueOf(dfs.getClosed().size()));
+			ch.getL("lengthC").setText(String.valueOf(dfs.getPath().size()));
+			
+			// if pathfinding is complete 
+			if(dfs.isComplete()) {
+				ch.getB("run").setText("clear");
+				if(!visualizationCheck) {
+					ch.getL("timeC").setText(dfs.getRunTime() + " ms");
+				}
 		}
 			
 		}else if(algorithms.equals("Dijkstra")) {
@@ -578,7 +578,7 @@ public class Frame extends JPanel
 	}
 	
 	// Calculates delay with two exponential functions
-	void setSpeed() {
+	public void setSpeed() {
 		int delay = 0;
 		int value = ch.getS("speed").getValue();
 		double a1 = (5000.0000 / (Math.pow(25.0000/5000, 1/49)));

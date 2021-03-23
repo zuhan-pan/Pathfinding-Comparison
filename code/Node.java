@@ -1,14 +1,6 @@
 package myWork;
 public class Node {
 	private int x, y, g, h, f;
-	private double d = 0;
-	public double getD() {
-		return d;
-	}
-
-	public void setD(double d) {
-		this.d = d;
-	}
 
 	private Node parent;
 	

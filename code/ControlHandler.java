@@ -28,7 +28,7 @@ public class ControlHandler {
 	private String[] choices = { "Astar", "BFS","DFS", "Dijkstra","Greedy"};
 	Dimension npD;
 	
-	public ControlHandler(Frame frame) {
+	public ControlHandler(final Frame frame) {
 		this.frame = frame;
 		labels = new ArrayList<JLabel>();
 		checks = new ArrayList<JCheckBox>();
