@@ -10,18 +10,21 @@
 
 ## Chosing Algorithms
 a drop-down list provides five algorithms to choose.
-![image](https://user-images.githubusercontent.com/64783567/120818841-e5e25800-c54a-11eb-8b2a-765d73e5b62e.png)
+![choosing](https://user-images.githubusercontent.com/64783567/120821165-20e58b00-c54d-11eb-8d78-93eccc689459.png)
+
 
 ## Visualization and Speed
 If visulization is checked, speed bar can be modified so users can visualize algorithms in a comfortable speed.
-![image](https://user-images.githubusercontent.com/64783567/120819066-1924e700-c54b-11eb-87de-18b2f501e678.png)
-![image](https://user-images.githubusercontent.com/64783567/120819080-1cb86e00-c54b-11eb-9083-78db75e30bcd.png)
+![speed](https://user-images.githubusercontent.com/64783567/120821359-4e323900-c54d-11eb-9a16-7d4af476d222.png)
+
 
 ## Values for Performance Comparison
 If visualization is turned off, three values will show up. The computed blocks, the length of the path and the time consumed.
-![image](https://user-images.githubusercontent.com/64783567/120820352-5e95e400-c54c-11eb-8d4c-b6213701d856.png)
+![off](https://user-images.githubusercontent.com/64783567/120821564-7e79d780-c54d-11eb-9ccc-ae29db0b5cb5.png)
+
 However, if the visualization turned on the time will not show up.
-![image](https://user-images.githubusercontent.com/64783567/120820654-a583d980-c54c-11eb-85ad-dcacbe3ed317.png)
+![on](https://user-images.githubusercontent.com/64783567/120821577-82a5f500-c54d-11eb-8442-7bee3c038a77.png)
+
 
 ## Acknowledgement
 Some of the code of this project are based on the code from https://github.com/DevonCrawford/A-Pathfinding-Visualization
